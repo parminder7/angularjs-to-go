@@ -1,3 +1,22 @@
-<p>
-  feedback works!
-</p>
+<form [formGroup]="fbkForm" (ngSubmit)="addPost(fbkForm.value)">
+  <div class="form-container">
+    <div class="row columns">
+      <h1>Feedback Submission Form</h1>
+      <label>Title
+        <input type="text" formControlName="title">
+      </label>
+      <div class="alert" *ngIf="!fbkForm.controls['title'].valid && fbkForm.controls['title'].touched">
+        Please enter the title of the feedback
+      </div>
+
+      <label>Description
+        <textarea rows="15" formControlName="description"></textarea>
+      </label>
+      <div class="alert" *ngIf="!fbkForm.controls['description'].valid && fbkForm.controls['description'].touched">
+        Description should be between 10 to 500 characters
+      </div>
+
+      <input type="submit" class="button expanded" value="Submit Form" [disabled]="!fbkForm.valid">
+    </div>
+  </div>
+</form>
