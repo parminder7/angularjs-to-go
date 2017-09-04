@@ -1,0 +1,40 @@
+<div *ngIf="!username; else forminfo">
+  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+    <div class="form-container">
+      <div class="row columns">
+        <h1>Login Form</h1>
+        <div>
+        	<div>
+        		<label>Username
+          			<input type="text" formControlName="username">
+        		</label>
+        	</div>
+			<div class="alert" *ngIf="!rForm.controls['username'].valid && rForm.controls['username'].touched">{{ fieldRequiredAlert }}</div>
+        </div>
+        
+        <div>
+        	<div>
+        		<label>Password
+          			<input type="password" formControlName="password"/>
+        		</label>
+        	</div>		
+			<div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">{{ fieldRequiredAlert }}</div>
+        </div>
+ 
+ 		<div>       
+        	<input type="checkbox" name="validate" formControlName="validate" value="1"> Remember me
+        </div>
+        <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid">
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #forminfo>
+  <div class="form-container">
+    <div class="row columns">
+        <h1>{{ username }}</h1>
+        <p>{{ password }}</p>
+    </div>
+  </div>
+</ng-template>
