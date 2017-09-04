@@ -17,6 +17,7 @@
       </div>
 
       <input type="submit" class="button expanded" value="Submit Form" [disabled]="!fbkForm.valid">
-    </div>
+      <div class="alert" *ngIf="responseMessage">{{ responseMessage }}</div>
+      </div>
   </div>
 </form>

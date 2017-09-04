@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import {RouterModule, Routes} from '@angular/router';
+import { HttpModule } from '@angular/http';
+import {FeedbackService} from './feedback/feedback.service';
 
 const appRoutes: Routes = [
   { path: 'feedback', component: FeedbackComponent },
@@ -21,9 +23,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes,  { enableTracing: true }),
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [ FeedbackService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
