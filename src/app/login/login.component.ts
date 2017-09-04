@@ -9,13 +9,14 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class LoginComponent implements OnInit {
   rForm: FormGroup;
   post: any;                     // A property for our submitted form
-  description: string = '';
+  password: string = '';
   name: string = '';
   titleAlert: string = 'This field is required';
   constructor(private fb: FormBuilder) {
       this.rForm = fb.group({
       'name' : [null, Validators.required],
-      'description' : [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
+//      'password' : [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500)])],
+      'password' : [null, Validators.required],
       'validate' : ''
     });
   }
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   addPost(post) { // here call the backend service
-    this.description = post.description;
+    this.password = post.password;
     this.name = post.name;
   }
 }

@@ -25,6 +25,9 @@ h1 {
     font-size: 2em;
 }
 
+.input {
+	width:90%;	
+}
 
 @keyframes alertAnim {
     from {

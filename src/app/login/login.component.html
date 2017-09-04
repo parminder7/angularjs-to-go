@@ -2,20 +2,28 @@
   <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
     <div class="form-container">
       <div class="row columns">
-        <h1>My Reactive Form</h1>
-        <label>Name
-          <input type="text" formControlName="name">
-        </label>
-		<div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}</div>
-
-        <label>Description
-          <textarea  formControlName="description"></textarea>
-        </label>
-		
-		<div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">You must specify a description that's between 30 and 500 characters.</div>
-        <label for="validate">Minimum of 3 Characters</label>
-        <input type="checkbox" name="validate" formControlName="validate" value="1"> On
+        <h1>Login From</h1>
+        <div>
+        	<div>
+        		<label>Name
+          			<input type="text" formControlName="name">
+        		</label>
+        	</div>
+			<div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}</div>
+        </div>
         
+        <div>
+        	<div>
+        		<label>Password
+          			<input type="password" formControlName="password"/>
+        		</label>
+        	</div>		
+			<div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">{{ titleAlert }}</div>
+        </div>
+ 
+ 		<div>       
+        	<input type="checkbox" name="validate" formControlName="validate" value="1"> Remember me
+        </div>
         <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid">
       </div>
     </div>
@@ -27,7 +35,7 @@
     <div class="row columns">
         <h1>{{ name }}</h1>
 
-        <p>{{ description }}</p>
+        <p>{{ password }}</p>
     </div>
   </div>
 </ng-template>
