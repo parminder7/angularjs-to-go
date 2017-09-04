@@ -1,0 +1,34 @@
+<!--<button class="btn btn-primary" routerLink="/add-forum">Add Topic</button>-->
+  <!--<div *ngIf="isDataAvailable" class="container">-->
+    <!--<ul>-->
+      <!--<li *ngFor="let topic of topics">-->
+        <!--<span>{{topic.topicQuestion}}</span> | {{topic.authorName}} | {{topic.tag}} | {{topic._id}}-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+
+
+<div *ngIf="isDataAvailable" class="container">
+  <h2>Discussion Forum</h2>
+  <p>
+    <button class="btn btn-primary" routerLink="/add-forum">Add Topic</button>
+  </p>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Topic Question</th>
+      <th>Author</th>
+      <th>Tag</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let topic of topics">
+      <td><a [routerLink]="['/app-show-forum', topic._id]">{{topic.topicQuestion}}</a></td>
+      <td>{{topic.authorName}}</td>
+      <td>{{topic.tag}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+

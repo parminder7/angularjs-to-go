@@ -1,0 +1,26 @@
+<div>
+  <form [formGroup]="rForm" (ngSubmit)="addTopic(rForm.value)">
+    <div class="form-container">
+      <div class="row columns">
+        <h1>Add Topic Form</h1>
+        <div>
+          <div>
+            <label>Author Name
+              <input type="text" formControlName="authorname">
+            </label>
+          </div>
+          <div class="alert" *ngIf="!rForm.controls['authorname'].valid && rForm.controls['authorname'].touched">{{ fieldRequiredAlert }}</div>
+        </div>
+        <div>
+          <div>
+            <label>Question
+              <input type="text" formControlName="question"/>
+            </label>
+          </div>
+          <div class="alert" *ngIf="!rForm.controls['question'].valid && rForm.controls['question'].touched">{{ fieldRequiredAlert }}</div>
+        </div>
+        <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid">
+      </div>
+    </div>
+  </form>
+</div>
