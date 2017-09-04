@@ -1,0 +1,8 @@
+.zero-clipboard {
+  position: relative;
+}
+.btn-clipboard {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
